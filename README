@@ -1,4 +1,11 @@
 Author: Stephen Brandwood
 
+This script takes a directory of text files, each using Markdown to specify
+formatting and converts them to HTML. A microsite is built using Twitter's
+bootstrap allowing easy navigation and viewing of the files.
+
+Handy for seeing those personal notebooks in a web browser with eye-friendly
+styles.
+
 Usage:
     build_codex.py source_directory target_directory
