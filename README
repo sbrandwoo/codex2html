@@ -1,0 +1,4 @@
+Author: Stephen Brandwood
+
+Usage:
+    build_codex.py source_directory target_directory
