@@ -20,7 +20,9 @@ class Page:
         return os.path.join(root_path, self.get_dir_path(), self.name)
 
     def get_dir_path(self):
-        return apply(os.path.join, self.path)
+        if self.path:
+            return apply(os.path.join, self.path)
+        return ""
 
     def get_relative_path(self, target):
         """Return a file path from the current page to the target path"""
@@ -100,6 +102,12 @@ def create_site(source_root, target_root):
             page_template = template.replace("{{NAV}}", nav)
             content_html = load_html(page, source_root)
             create_html_file(page, content_html, page_template, target_root)
+
+    # Build index page (won't appear in nav)
+    index_page = Page("index", [])
+    nav = build_nav(page_map, index_page)
+    page_template = template.replace("{{NAV}}", nav)
+    create_html_file(index_page, "", page_template, target_root)
 
 
 if __name__ == "__main__":
